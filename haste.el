@@ -81,3 +81,5 @@
             (cons (point) (point-max))))
     (setq data (buffer-substring-no-properties (car bounds) (cdr bounds)))
     (haste-post data)))
+
+(provide 'haste)
