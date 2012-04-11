@@ -1,0 +1,38 @@
+= emacs-haste-client
+
+Emacs client for hastebin (http://hastebin.com/about.md).
+
+== Installation
+
+  git clone https://github.com/rlister/emacs-haste-client
+
+== Configuration
+
+Add the following to your emacs config:
+
+  (add-to-list 'load-path "~/path/to/emacs-haste-client")
+  (require 'haste nil 'noerror)
+
+Server defaults to hastebin.com, but you can override to a local
+server installation by setting environment variable:
+
+  export HASTE_SERVER=http://hastebin.mydomain.com
+
+or in emacs, with:
+
+  (setq haste-server "http://hastebin.mydomain.com")
+
+== Usage
+
+Paste code to hastebin:
+
+  M-x haste
+
+If the mark is set, the contents of the region will be posted,
+otherwise the whole buffer. Your new hastebin url will be echoed
+to the minibuffer and pushed onto the kill-ring ready for use.
+You can also retrieve it from the buffer *Messages*.
+
+== Copyright
+
+Copyright (c) 2012 Richard Lister.
