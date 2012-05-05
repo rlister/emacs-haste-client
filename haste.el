@@ -47,6 +47,8 @@
 ;; to the minibuffer and pushed onto the kill-ring ready for use.
 ;; You can also retrieve it from the buffer *Messages*.
 
+(require 'json)
+
 (defvar haste-server (or (getenv "HASTE_SERVER") "http://hastebin.com"))
 (defvar haste-path "/documents")
 
