@@ -1,4 +1,5 @@
-;; haste.el -- Emacs client for hastebin (http://hastebin.com/about.md)
+;;; haste.el --- Emacs client for hastebin (http://hastebin.com/about.md)
+
 ;; 
 ;; Copyright (C) 2012 by Ric Lister
 ;;
@@ -19,6 +20,12 @@
 ;; Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 ;; 02111-1307, USA.
 ;;
+
+;; Author: Ric Lister
+;; URL: http://github.com/rlister/emacs-haste-client
+;; Version: 1
+;; Package-Requires: ((json "1.2"))
+
 ;; 
 ;; Get the code:
 ;;
@@ -85,3 +92,5 @@
     (haste-post data)))
 
 (provide 'haste)
+
+;;; haste.el ends here
