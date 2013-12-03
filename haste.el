@@ -50,7 +50,7 @@
 ;;   M-x haste
 ;;
 ;; If the mark is set, the contents of the region will be posted,
-o;; otherwise the whole buffer. Your new hastebin url will be echoed
+;; otherwise the whole buffer. Your new hastebin url will be echoed
 ;; to the minibuffer and pushed onto the kill-ring ready for use.
 ;; You can also retrieve it from the buffer *Messages*.
 
