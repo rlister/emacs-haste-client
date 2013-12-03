@@ -50,7 +50,7 @@
 ;;   M-x haste
 ;;
 ;; If the mark is set, the contents of the region will be posted,
-;; otherwise the whole buffer. Your new hastebin url will be echoed
+o;; otherwise the whole buffer. Your new hastebin url will be echoed
 ;; to the minibuffer and pushed onto the kill-ring ready for use.
 ;; You can also retrieve it from the buffer *Messages*.
 
@@ -58,13 +58,24 @@
 
 (defvar haste-server (or (getenv "HASTE_SERVER") "http://hastebin.com"))
 (defvar haste-path "/documents")
+(defvar haste-username nil)
+(defvar haste-password nil)
 
 (defun haste-post (data)
   "Send haste a POST request."
   (let ((haste-url (concat haste-server haste-path))
         (url-request-method "POST")
+        (url-request-extra-headers (haste-request-headers))
         (url-request-data data))
     (url-retrieve haste-url 'get-haste-key-from-buffer)))
+
+(defun haste-request-headers ()
+  "Return http request headers with basic auth if username and password set."
+  (if (and haste-username haste-password)
+      `(("Authorization" . ,(concat "Basic "
+                                    (base64-encode-string
+                                     (concat haste-username ":" haste-password)))))
+    `()))
 
 (defun get-haste-key-from-buffer (status)
   "Callback to extract hastebin key from buffer returned by url-retrieve and push onto kill-ring."
