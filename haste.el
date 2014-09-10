@@ -87,7 +87,7 @@
       (setq json-alist (json-read-from-string
                         (buffer-substring-no-properties (point) (point-max))))
       (setq key (cdr (assoc 'key json-alist)))
-      (setq document-url (concat haste-server "/" key))
+      (setq document-url (concat haste-server "/" key ".hs"))
       (message "posted to: %s" document-url)
       (kill-new document-url))))
 
