@@ -23,15 +23,19 @@
 
 ;; Author: Ric Lister
 ;; URL: http://github.com/rlister/emacs-haste-client
-;; Version: 1
+;; Version: 1.1
 ;; Package-Requires: ((json "1.2"))
 
 ;; 
-;; Get the code:
+;; Get the code from MELPA:
+;;
+;;   M-x package-install haste
+;;
+;; or the latest from github:
 ;;
 ;;   git clone https://github.com/rlister/emacs-haste-client
 ;;
-;; Add the following to your emacs config:
+;; and add the following to your emacs config:
 ;;
 ;;   (add-to-list 'load-path "~/path/to/emacs-haste-client")
 ;;   (require 'haste nil 'noerror)
@@ -45,6 +49,17 @@
 ;;
 ;;   (setq haste-server "http://hastebin.mydomain.com")
 ;;
+;; If your hastebin server is protected with http basic auth,
+;; you can set credentials from the environment:
+;;
+;;   export HASTE_USERNAME=myuser
+;;   export HASTE_PASSWORD=mypass
+;;
+;; or in emacs, with:
+;;
+;;   (setq haste_username "myuser")
+;;   (setq haste_password "mypass")
+;;
 ;; Paste code to hastebin:
 ;;
 ;;   M-x haste
@@ -56,10 +71,10 @@
 
 (require 'json)
 
-(defvar haste-server (or (getenv "HASTE_SERVER") "http://hastebin.com"))
-(defvar haste-path "/documents")
-(defvar haste-username nil)
-(defvar haste-password nil)
+(defvar haste-server   (or (getenv "HASTE_SERVER") "http://hastebin.com"))
+(defvar haste-path     (or (getenv "HASTE_PATH") "/documents"))
+(defvar haste-username (or (getenv "HASTE_USERNAME") nil))
+(defvar haste-password (or (getenv "HASTE_PASSWORD") nil))
 
 (defun haste-post (data)
   "Send haste a POST request."
