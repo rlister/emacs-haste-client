@@ -29,10 +29,12 @@ defaults as follows:
      (setq haste-password "my_password")))
 ```
 
-You can also override server by setting environment variable:
+You can also override server settings by setting environment variable:
 
 ```sh
 export HASTE_SERVER=http://hastebin.mydomain.com
+export HASTE_USERNAME=my_username
+export HASTE_PASSWORD=my_password
 ```
   
 ## Usage
