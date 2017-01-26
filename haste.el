@@ -71,10 +71,28 @@
 
 (require 'json)
 
-(defvar haste-server   (or (getenv "HASTE_SERVER") "http://hastebin.com"))
-(defvar haste-path     (or (getenv "HASTE_PATH") "/documents"))
-(defvar haste-username (or (getenv "HASTE_USERNAME") nil))
-(defvar haste-password (or (getenv "HASTE_PASSWORD") nil))
+(defgroup haste nil "Interfacing to the hastebin web paste server" :group 'external)
+
+(defcustom haste-server "https://hastebin.com"
+  "The hastebin server to use."
+  :type 'string
+  :group 'haste)
+
+(defcustom haste-path     "/documents"
+  "Path on the server."
+  :type 'string
+  :group 'haste)
+
+(defcustom haste-username nil
+  "Otional username."
+  :type 'string
+  :group 'haste)
+
+(defcustom haste-password nil
+  "Otional password."
+  :type 'string
+  :group 'haste)
+
 
 (defun haste-post (data)
   "Send haste a POST request."
